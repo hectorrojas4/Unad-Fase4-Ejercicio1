@@ -1,0 +1,17 @@
+# Archivos compilados de Python
+__pycache__/
+*.py[cod]
+
+# Entornos virtuales
+.venv/
+venv/
+
+# Registro generado al ejecutar el programa (crece en cada ejecución y contiene rutas locales)
+logs/*.log
+# Excepción: log de ejemplo de una ejecución limpia, como evidencia del requisito de logs
+!logs/sistema_ejemplo.log
+
+# Archivos del sistema e IDE
+.DS_Store
+.idea/
+.vscode/
