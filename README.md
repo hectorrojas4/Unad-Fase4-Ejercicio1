@@ -1,25 +1,25 @@
-# Software FJ - Client, Service and Booking Management System
+# Software FJ - Sistema de Gestión de Clientes, Servicios y Reservas
 
-Python project for the Programming course - Exercise #1.
+Proyecto en Python para el curso de Programación - Ejercicio #1.
 
-## How to run
+## Cómo ejecutar
 
-It needs Python 3.8 or later.
+Requiere Python 3.8 o superior.
 
 ```bash
 python main.py
 ```
 
-## About the log files
+## Sobre los archivos de log
 
-The file `logs/sistema_ejemplo.log` is an example of the log the program creates every time it runs.
+El archivo `logs/sistema_ejemplo.log` es un ejemplo del log que el programa crea cada vez que se ejecuta.
 
-## Progress
+## Avance
 
-The booking part is still missing. A client should be able to book a meeting room, some equipment or a consultant for a certain amount of time, and the system has to keep that booking.
+Todavía falta la parte de las reservas. Un cliente debería poder reservar una sala de reuniones, unos equipos o un asesor por un tiempo determinado, y el sistema tiene que guardar esa reserva.
 
-Each booking also has to be followed from start to finish. It starts as pending, then it is confirmed, and at the end the service is delivered and charged. It should also be possible to cancel it before the service is delivered.
+Cada reserva también tiene que seguirse de principio a fin. Empieza como pendiente, luego se confirma y al final se presta el servicio y se cobra. También debería poder cancelarse antes de que se preste el servicio.
 
-The system has to stop bookings that make no sense, such as booking something that is turned off, asking for more equipment than there is, confirming the same booking twice or cancelling something that was already delivered. When that happens, it should explain what went wrong, write it down in the log and keep working.
+El sistema tiene que impedir las reservas que no tienen sentido, como reservar algo que está deshabilitado, pedir más equipos de los que hay, confirmar dos veces la misma reserva o cancelar algo que ya se prestó. Cuando eso pase, debe explicar qué salió mal, anotarlo en el log y seguir funcionando.
 
-Finally, the simulation has to show bookings that work and bookings that fail, and the example log has to be updated with that final run.
+Por último, la simulación tiene que mostrar reservas que salen bien y reservas que fallan, y el log de ejemplo tiene que actualizarse con esa ejecución final.
