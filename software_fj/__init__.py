@@ -3,13 +3,12 @@ Paquete software_fj
 Sistema Integral de Gestión de Clientes, Servicios y Reservas - Software FJ
 Curso: Programación (213023) - UNAD - Fase 4
 
-Expone las clases principales para poder importarlas directamente:
-    from software_fj import GestorSoftwareFJ, Cliente, SalaReuniones
+Reúne las clases principales del sistema para importarlas desde el paquete.
 """
 
-from .cliente import Cliente  # Clase Cliente
-from .entidad import Entidad  # Clase abstracta base
-from .excepciones import (  # Jerarquía de excepciones personalizadas
+from .cliente import Cliente
+from .entidad import Entidad
+from .excepciones import (
     CalculoInconsistenteError,
     ClienteInvalidoError,
     EntidadNoEncontradaError,
@@ -23,8 +22,9 @@ from .excepciones import (  # Jerarquía de excepciones personalizadas
     SoftwareFJError,
     ValidacionError,
 )
-from .gestor import GestorSoftwareFJ  # Administrador del sistema
-from .servicios import (  # Servicio abstracto y servicios especializados
+from .gestor import GestorSoftwareFJ
+from .reserva import EstadoReserva, Reserva
+from .servicios import (
     IVA_COLOMBIA,
     AlquilerEquipo,
     AsesoriaEspecializada,
@@ -33,13 +33,15 @@ from .servicios import (  # Servicio abstracto y servicios especializados
     formatear_moneda,
 )
 
-__all__ = [  # Nombres que se exportan con "from software_fj import *"
+__all__ = [
     "Entidad",
     "Cliente",
     "Servicio",
     "SalaReuniones",
     "AlquilerEquipo",
     "AsesoriaEspecializada",
+    "Reserva",
+    "EstadoReserva",
     "GestorSoftwareFJ",
     "formatear_moneda",
     "IVA_COLOMBIA",

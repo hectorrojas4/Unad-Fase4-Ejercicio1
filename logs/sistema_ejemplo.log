@@ -1,69 +1,108 @@
-2026-11-21 19:52:28 | INFO     | Registro de eventos iniciado. Destino: logs/sistema.log
-2026-11-21 19:52:28 | INFO     | ==================== INICIO DE LA SIMULACIÓN ====================
-2026-11-21 19:52:28 | INFO     | Gestor Software FJ iniciado (sin base de datos: listas en memoria).
-2026-11-21 19:52:28 | INFO     | Cliente registrado: Cliente CLI-001 | Ana María Restrepo | Doc. ******6789 | ana.restrepo@correo.com | Tel. 3001234567
-2026-11-21 19:52:28 | INFO     | Operación 01 'Registrar cliente válido: Ana María Restrepo' completada.
-2026-11-21 19:52:28 | INFO     | Cliente registrado: Cliente CLI-002 | Carlos Andrés Gómez | Doc. ****5432 | cgomez@softwarefj.co | Tel. 6044441234
-2026-11-21 19:52:28 | INFO     | Operación 02 'Registrar cliente válido: Carlos Andrés Gómez' completada.
-2026-11-21 19:52:28 | ERROR    | Registro de cliente rechazado -> ClienteInvalidoError: [SFJ-101] El correo 'laura.perez@@correo' no tiene un formato válido.
-2026-11-21 19:52:28 | WARNING  | Operación 03 'Registrar cliente con correo inválido' falló de forma controlada -> ClienteInvalidoError: [SFJ-101] El correo 'laura.perez@@correo' no tiene un formato válido.
-2026-11-21 19:52:28 | ERROR    | Registro de cliente rechazado -> RegistroDuplicadoError: [SFJ-201] Ya existe un cliente con el documento terminado en 6789.
-2026-11-21 19:52:28 | WARNING  | Operación 04 'Registrar cliente con documento duplicado (mismo documento con puntos)' falló de forma controlada -> RegistroDuplicadoError: [SFJ-201] Ya existe un cliente con el documento terminado en 6789.
-2026-11-21 19:52:28 | ERROR    | Registro de cliente rechazado -> ParametroFaltanteError: [SFJ-103] El campo 'nombre' es obligatorio para el cliente.
-2026-11-21 19:52:28 | WARNING  | Operación 05 'Registrar cliente sin nombre (parámetro faltante)' falló de forma controlada -> ParametroFaltanteError: [SFJ-103] El campo 'nombre' es obligatorio para el cliente.
-2026-11-21 19:52:28 | ERROR    | Registro de cliente rechazado -> ClienteInvalidoError: [SFJ-101] El teléfono '300-ABC-4567' contiene caracteres no numéricos.
-2026-11-21 19:52:28 | ERROR    |     causa original -> ValueError: invalid literal for int() with base 10: '300ABC4567'
-2026-11-21 19:52:28 | WARNING  | Operación 06 'Registrar cliente con teléfono no numérico (excepción encadenada)' falló de forma controlada -> ClienteInvalidoError: [SFJ-101] El teléfono '300-ABC-4567' contiene caracteres no numéricos.
-2026-11-21 19:52:28 | INFO     | Contacto actualizado: Cliente CLI-001 | Ana María Restrepo | Doc. ******6789 | ana.mr@nuevo.com | Tel. 3001234567
-2026-11-21 19:52:28 | INFO     | Operación 07 'Actualizar el correo de un cliente existente (encapsulación)' completada.
-2026-11-21 19:52:28 | WARNING  | Operación 08 'Buscar un cliente que no existe' falló de forma controlada -> EntidadNoEncontradaError: [SFJ-300] No existe un cliente con identificador 'CLI-999'.
-2026-11-21 19:52:28 | INFO     | Servicio registrado: Sala SAL-001 | Sala Innovación | 12 personas, con proyector | $ 60.000/hora | disponible
-2026-11-21 19:52:28 | INFO     | Operación 09 'Crear servicio válido: sala de reuniones' completada.
-2026-11-21 19:52:28 | INFO     | Servicio registrado: Equipo EQP-001 | Portátiles de alto rendimiento | tipo: portatil, 5 unidades | $ 85.000/día por unidad | disponible
-2026-11-21 19:52:28 | INFO     | Operación 10 'Crear servicio válido: alquiler de equipos' completada.
-2026-11-21 19:52:28 | INFO     | Servicio registrado: Asesoría ASE-001 | Asesoría en ciberseguridad | seguridad, nivel experto | $ 120.000/hora base | disponible
-2026-11-21 19:52:28 | INFO     | Operación 11 'Crear servicio válido: asesoría especializada' completada.
-2026-11-21 19:52:28 | ERROR    | Creación de servicio 'sala' rechazada -> ServicioInvalidoError: [SFJ-102] La tarifa debe ser mayor que cero (recibido: -5000).
-2026-11-21 19:52:28 | WARNING  | Operación 12 'Crear servicio con tarifa negativa' falló de forma controlada -> ServicioInvalidoError: [SFJ-102] La tarifa debe ser mayor que cero (recibido: -5000).
-2026-11-21 19:52:28 | ERROR    | Creación de servicio 'transporte' rechazada -> ServicioInvalidoError: [SFJ-102] El tipo de servicio 'transporte' no existe. Opciones: sala, equipo, asesoria.
-2026-11-21 19:52:28 | ERROR    |     causa original -> KeyError: 'transporte'
-2026-11-21 19:52:28 | WARNING  | Operación 13 'Crear servicio de un tipo que no existe' falló de forma controlada -> ServicioInvalidoError: [SFJ-102] El tipo de servicio 'transporte' no existe. Opciones: sala, equipo, asesoria.
-2026-11-21 19:52:28 | ERROR    | Creación de servicio 'equipo' rechazada -> ParametroFaltanteError: [SFJ-103] Faltan o sobran parámetros para crear un servicio 'equipo'.
-2026-11-21 19:52:28 | ERROR    |     causa original -> TypeError: AlquilerEquipo.__init__() missing 2 required positional arguments: 'tipo_equipo' and 'unidades'
-2026-11-21 19:52:28 | WARNING  | Operación 14 'Crear servicio sin parámetros obligatorios (excepción encadenada)' falló de forma controlada -> ParametroFaltanteError: [SFJ-103] Faltan o sobran parámetros para crear un servicio 'equipo'.
-2026-11-21 19:52:28 | ERROR    | Creación de servicio 'sala' rechazada -> ServicioInvalidoError: [SFJ-102] El campo 'capacidad' debe ser un número entero (recibido: 'doce').
-2026-11-21 19:52:28 | ERROR    |     causa original -> ValueError: could not convert string to float: 'doce'
-2026-11-21 19:52:28 | WARNING  | Operación 15 'Crear servicio con capacidad no numérica (excepción encadenada)' falló de forma controlada -> ServicioInvalidoError: [SFJ-102] El campo 'capacidad' debe ser un número entero (recibido: 'doce').
-2026-11-21 19:52:28 | INFO     | Cotización SAL-001: duración=3, impuesto=None, descuento=None, detalles={} -> $ 205.000
-2026-11-21 19:52:28 | INFO     | Operación 16 'Cotizar sala 3 horas - variante: costo base' completada.
-2026-11-21 19:52:28 | INFO     | Cotización SAL-001: duración=3, impuesto=0.19, descuento=None, detalles={} -> $ 243.950
-2026-11-21 19:52:28 | INFO     | Operación 17 'Cotizar sala 3 horas - variante: con IVA' completada.
-2026-11-21 19:52:28 | INFO     | Cotización EQP-001: duración=7, impuesto=None, descuento=0.1, detalles={'cantidad': 2} -> $ 963.900
-2026-11-21 19:52:28 | INFO     | Operación 18 'Cotizar 2 portátiles por 7 días - variante: con descuento del 10 %' completada.
-2026-11-21 19:52:28 | INFO     | Cotización ASE-001: duración=4, impuesto=0.19, descuento=0.05, detalles={'modalidad': 'presencial'} -> $ 1.248.072
-2026-11-21 19:52:28 | INFO     | Operación 19 'Cotizar asesoría presencial 4 horas - variante: con descuento e IVA' completada.
-2026-11-21 19:52:28 | ERROR    | Cotización rechazada (SAL-001) -> CalculoInconsistenteError: [SFJ-500] El descuento debe estar entre 0 y 0.5 (use 0.19 para 19 %; recibido: 1.5).
-2026-11-21 19:52:28 | WARNING  | Operación 20 'Cotizar con descuento del 150 % (cálculo inconsistente)' falló de forma controlada -> CalculoInconsistenteError: [SFJ-500] El descuento debe estar entre 0 y 0.5 (use 0.19 para 19 %; recibido: 1.5).
-2026-11-21 19:52:28 | ERROR    | Cotización rechazada (SAL-001) -> ServicioNoDisponibleError: [SFJ-400] La sala SAL-001 admite 12 personas; se solicitaron 30.
-2026-11-21 19:52:28 | WARNING  | Operación 21 'Cotizar sala para más asistentes que su capacidad' falló de forma controlada -> ServicioNoDisponibleError: [SFJ-400] La sala SAL-001 admite 12 personas; se solicitaron 30.
-2026-11-21 19:52:28 | ERROR    | Cotización rechazada (EQP-001) -> ServicioNoDisponibleError: [SFJ-400] Solo hay 5 unidades de EQP-001; se solicitaron 8.
-2026-11-21 19:52:28 | WARNING  | Operación 22 'Cotizar más equipos de los que hay en inventario' falló de forma controlada -> ServicioNoDisponibleError: [SFJ-400] Solo hay 5 unidades de EQP-001; se solicitaron 8.
-2026-11-21 19:52:28 | ERROR    | Cotización rechazada (SAL-001) -> ParametroInvalidoError: [SFJ-104] La duración 'tres' no es un número válido.
-2026-11-21 19:52:28 | ERROR    |     causa original -> ValueError: could not convert string to float: 'tres'
-2026-11-21 19:52:28 | WARNING  | Operación 23 'Cotizar sala con duración en texto (excepción encadenada)' falló de forma controlada -> ParametroInvalidoError: [SFJ-104] La duración 'tres' no es un número válido.
-2026-11-21 19:52:28 | INFO     | Servicio ASE-001 deshabilitado.
-2026-11-21 19:52:28 | INFO     | Operación 24 'Deshabilitar la asesoría ASE-001' completada.
-2026-11-21 19:52:28 | ERROR    | Cotización rechazada (ASE-001) -> ServicioNoDisponibleError: [SFJ-400] El servicio ASE-001 (Asesoría en ciberseguridad) no está disponible en este momento.
-2026-11-21 19:52:28 | WARNING  | Operación 25 'Cotizar la asesoría deshabilitada (servicio no disponible)' falló de forma controlada -> ServicioNoDisponibleError: [SFJ-400] El servicio ASE-001 (Asesoría en ciberseguridad) no está disponible en este momento.
-2026-11-21 19:52:28 | ERROR    | Cambio de disponibilidad rechazado (ASE-001) -> OperacionNoPermitidaError: [SFJ-200] El servicio ASE-001 ya está deshabilitado.
-2026-11-21 19:52:28 | WARNING  | Operación 26 'Deshabilitar de nuevo ASE-001 (operación no permitida)' falló de forma controlada -> OperacionNoPermitidaError: [SFJ-200] El servicio ASE-001 ya está deshabilitado.
-2026-11-21 19:52:28 | CRITICAL | Operación 27 'Simular un error imprevisto: acceder a un cliente en una posición inexistente' produjo un error imprevisto -> IndexError: tuple index out of range
+2026-11-21 20:20:06 | INFO     | Registro de eventos iniciado. Destino: logs/sistema.log
+2026-11-21 20:20:06 | INFO     | ==================== INICIO DE LA SIMULACIÓN ====================
+2026-11-21 20:20:06 | INFO     | Gestor Software FJ iniciado (sin base de datos: listas en memoria).
+2026-11-21 20:20:06 | INFO     | Cliente registrado: Cliente CLI-001 | Ana María Restrepo | Doc. ******6789 | ana.restrepo@correo.com | Tel. 3001234567
+2026-11-21 20:20:06 | INFO     | Operación 01 'Registrar cliente válido: Ana María Restrepo' completada.
+2026-11-21 20:20:06 | INFO     | Cliente registrado: Cliente CLI-002 | Carlos Andrés Gómez | Doc. ****5432 | cgomez@softwarefj.co | Tel. 6044441234
+2026-11-21 20:20:06 | INFO     | Operación 02 'Registrar cliente válido: Carlos Andrés Gómez' completada.
+2026-11-21 20:20:06 | ERROR    | Registro de cliente rechazado -> ClienteInvalidoError: [SFJ-101] El correo 'laura.perez@@correo' no tiene un formato válido.
+2026-11-21 20:20:06 | WARNING  | Operación 03 'Registrar cliente con correo inválido' falló de forma controlada -> ClienteInvalidoError: [SFJ-101] El correo 'laura.perez@@correo' no tiene un formato válido.
+2026-11-21 20:20:06 | ERROR    | Registro de cliente rechazado -> RegistroDuplicadoError: [SFJ-201] Ya existe un cliente con el documento terminado en 6789.
+2026-11-21 20:20:06 | WARNING  | Operación 04 'Registrar cliente con documento duplicado (mismo documento con puntos)' falló de forma controlada -> RegistroDuplicadoError: [SFJ-201] Ya existe un cliente con el documento terminado en 6789.
+2026-11-21 20:20:06 | ERROR    | Registro de cliente rechazado -> ParametroFaltanteError: [SFJ-103] El campo 'nombre' es obligatorio para el cliente.
+2026-11-21 20:20:06 | WARNING  | Operación 05 'Registrar cliente sin nombre (parámetro faltante)' falló de forma controlada -> ParametroFaltanteError: [SFJ-103] El campo 'nombre' es obligatorio para el cliente.
+2026-11-21 20:20:06 | ERROR    | Registro de cliente rechazado -> ClienteInvalidoError: [SFJ-101] El teléfono '300-ABC-4567' contiene caracteres no numéricos.
+2026-11-21 20:20:06 | ERROR    |     causa original -> ValueError: invalid literal for int() with base 10: '300ABC4567'
+2026-11-21 20:20:06 | WARNING  | Operación 06 'Registrar cliente con teléfono no numérico (excepción encadenada)' falló de forma controlada -> ClienteInvalidoError: [SFJ-101] El teléfono '300-ABC-4567' contiene caracteres no numéricos.
+2026-11-21 20:20:06 | INFO     | Contacto actualizado: Cliente CLI-001 | Ana María Restrepo | Doc. ******6789 | ana.mr@nuevo.com | Tel. 3001234567
+2026-11-21 20:20:06 | INFO     | Operación 07 'Actualizar el correo de un cliente existente (encapsulación)' completada.
+2026-11-21 20:20:06 | WARNING  | Operación 08 'Buscar un cliente que no existe' falló de forma controlada -> EntidadNoEncontradaError: [SFJ-300] No existe un cliente con identificador 'CLI-999'.
+2026-11-21 20:20:06 | INFO     | Servicio registrado: Sala SAL-001 | Sala Innovación | 12 personas, con proyector | $ 60.000/hora | disponible
+2026-11-21 20:20:06 | INFO     | Operación 09 'Crear servicio válido: sala de reuniones' completada.
+2026-11-21 20:20:06 | INFO     | Servicio registrado: Equipo EQP-001 | Portátiles de alto rendimiento | tipo: portatil, 5 de 5 unidades libres | $ 85.000/día por unidad | disponible
+2026-11-21 20:20:06 | INFO     | Operación 10 'Crear servicio válido: alquiler de equipos' completada.
+2026-11-21 20:20:06 | INFO     | Servicio registrado: Asesoría ASE-001 | Asesoría en ciberseguridad | seguridad, nivel experto | $ 120.000/hora base | disponible
+2026-11-21 20:20:06 | INFO     | Operación 11 'Crear servicio válido: asesoría especializada' completada.
+2026-11-21 20:20:06 | ERROR    | Creación de servicio 'sala' rechazada -> ServicioInvalidoError: [SFJ-102] La tarifa debe ser mayor que cero (recibido: -5000).
+2026-11-21 20:20:06 | WARNING  | Operación 12 'Crear servicio con tarifa negativa' falló de forma controlada -> ServicioInvalidoError: [SFJ-102] La tarifa debe ser mayor que cero (recibido: -5000).
+2026-11-21 20:20:06 | ERROR    | Creación de servicio 'transporte' rechazada -> ServicioInvalidoError: [SFJ-102] El tipo de servicio 'transporte' no existe. Opciones: sala, equipo, asesoria.
+2026-11-21 20:20:06 | ERROR    |     causa original -> KeyError: 'transporte'
+2026-11-21 20:20:06 | WARNING  | Operación 13 'Crear servicio de un tipo que no existe' falló de forma controlada -> ServicioInvalidoError: [SFJ-102] El tipo de servicio 'transporte' no existe. Opciones: sala, equipo, asesoria.
+2026-11-21 20:20:06 | ERROR    | Creación de servicio 'equipo' rechazada -> ParametroFaltanteError: [SFJ-103] Faltan o sobran parámetros para crear un servicio 'equipo'.
+2026-11-21 20:20:06 | ERROR    |     causa original -> TypeError: AlquilerEquipo.__init__() missing 2 required positional arguments: 'tipo_equipo' and 'unidades'
+2026-11-21 20:20:06 | WARNING  | Operación 14 'Crear servicio sin parámetros obligatorios (excepción encadenada)' falló de forma controlada -> ParametroFaltanteError: [SFJ-103] Faltan o sobran parámetros para crear un servicio 'equipo'.
+2026-11-21 20:20:06 | ERROR    | Creación de servicio 'sala' rechazada -> ServicioInvalidoError: [SFJ-102] El campo 'capacidad' debe ser un número entero (recibido: 'doce').
+2026-11-21 20:20:06 | ERROR    |     causa original -> ValueError: could not convert string to float: 'doce'
+2026-11-21 20:20:06 | WARNING  | Operación 15 'Crear servicio con capacidad no numérica (excepción encadenada)' falló de forma controlada -> ServicioInvalidoError: [SFJ-102] El campo 'capacidad' debe ser un número entero (recibido: 'doce').
+2026-11-21 20:20:06 | INFO     | Cotización SAL-001: duración=3, impuesto=None, descuento=None, detalles={} -> $ 205.000
+2026-11-21 20:20:06 | INFO     | Operación 16 'Cotizar sala 3 horas - variante: costo base' completada.
+2026-11-21 20:20:06 | INFO     | Cotización SAL-001: duración=3, impuesto=0.19, descuento=None, detalles={} -> $ 243.950
+2026-11-21 20:20:06 | INFO     | Operación 17 'Cotizar sala 3 horas - variante: con IVA' completada.
+2026-11-21 20:20:06 | INFO     | Cotización EQP-001: duración=7, impuesto=None, descuento=0.1, detalles={'cantidad': 2} -> $ 963.900
+2026-11-21 20:20:06 | INFO     | Operación 18 'Cotizar 2 portátiles por 7 días - variante: con descuento del 10 %' completada.
+2026-11-21 20:20:06 | INFO     | Cotización ASE-001: duración=4, impuesto=0.19, descuento=0.05, detalles={'modalidad': 'presencial'} -> $ 1.248.072
+2026-11-21 20:20:06 | INFO     | Operación 19 'Cotizar asesoría presencial 4 horas - variante: con descuento e IVA' completada.
+2026-11-21 20:20:06 | ERROR    | Cotización rechazada (SAL-001) -> CalculoInconsistenteError: [SFJ-500] El descuento debe estar entre 0 y 0.5 (use 0.19 para 19 %; recibido: 1.5).
+2026-11-21 20:20:06 | WARNING  | Operación 20 'Cotizar con descuento del 150 % (cálculo inconsistente)' falló de forma controlada -> CalculoInconsistenteError: [SFJ-500] El descuento debe estar entre 0 y 0.5 (use 0.19 para 19 %; recibido: 1.5).
+2026-11-21 20:20:06 | ERROR    | Cotización rechazada (SAL-001) -> ServicioNoDisponibleError: [SFJ-400] La sala SAL-001 admite 12 personas; se solicitaron 30.
+2026-11-21 20:20:06 | WARNING  | Operación 21 'Cotizar sala para más asistentes que su capacidad' falló de forma controlada -> ServicioNoDisponibleError: [SFJ-400] La sala SAL-001 admite 12 personas; se solicitaron 30.
+2026-11-21 20:20:06 | ERROR    | Cotización rechazada (EQP-001) -> ServicioNoDisponibleError: [SFJ-400] Solo hay 5 unidades libres de EQP-001; se solicitaron 8.
+2026-11-21 20:20:06 | WARNING  | Operación 22 'Cotizar más equipos de los que hay en inventario' falló de forma controlada -> ServicioNoDisponibleError: [SFJ-400] Solo hay 5 unidades libres de EQP-001; se solicitaron 8.
+2026-11-21 20:20:06 | ERROR    | Cotización rechazada (SAL-001) -> ParametroInvalidoError: [SFJ-104] La duración 'tres' no es un número válido.
+2026-11-21 20:20:06 | ERROR    |     causa original -> ValueError: could not convert string to float: 'tres'
+2026-11-21 20:20:06 | WARNING  | Operación 23 'Cotizar sala con duración en texto (excepción encadenada)' falló de forma controlada -> ParametroInvalidoError: [SFJ-104] La duración 'tres' no es un número válido.
+2026-11-21 20:20:06 | INFO     | Servicio ASE-001 deshabilitado.
+2026-11-21 20:20:06 | INFO     | Operación 24 'Deshabilitar la asesoría ASE-001' completada.
+2026-11-21 20:20:06 | ERROR    | Cotización rechazada (ASE-001) -> ServicioNoDisponibleError: [SFJ-400] El servicio ASE-001 (Asesoría en ciberseguridad) no está disponible en este momento.
+2026-11-21 20:20:06 | WARNING  | Operación 25 'Cotizar la asesoría deshabilitada (servicio no disponible)' falló de forma controlada -> ServicioNoDisponibleError: [SFJ-400] El servicio ASE-001 (Asesoría en ciberseguridad) no está disponible en este momento.
+2026-11-21 20:20:06 | ERROR    | Cambio de disponibilidad rechazado (ASE-001) -> OperacionNoPermitidaError: [SFJ-200] El servicio ASE-001 ya está deshabilitado.
+2026-11-21 20:20:06 | WARNING  | Operación 26 'Deshabilitar de nuevo ASE-001 (operación no permitida)' falló de forma controlada -> OperacionNoPermitidaError: [SFJ-200] El servicio ASE-001 ya está deshabilitado.
+2026-11-21 20:20:06 | INFO     | Reserva creada: Reserva RES-001 | Ana María Restrepo (CLI-001) | Sala Innovación (SAL-001) | 3 horas (asistentes: 10) | pendiente | estimado $ 205.000
+2026-11-21 20:20:06 | INFO     | Operación 27 'Reservar la sala SAL-001 por 3 horas para 10 personas (Ana)' completada.
+2026-11-21 20:20:06 | INFO     | Confirmación de reserva exitosa: Reserva RES-001 | Ana María Restrepo (CLI-001) | Sala Innovación (SAL-001) | 3 horas (asistentes: 10) | confirmada | estimado $ 205.000
+2026-11-21 20:20:06 | INFO     | Operación 28 'Confirmar la reserva RES-001' completada.
+2026-11-21 20:20:06 | INFO     | Procesamiento de reserva exitosa: Reserva RES-001 | Ana María Restrepo (CLI-001) | Sala Innovación (SAL-001) | 3 horas (asistentes: 10) | procesada | cobrado $ 243.950
+2026-11-21 20:20:06 | INFO     | Operación 29 'Procesar RES-001: prestar el servicio y cobrar con IVA' completada.
+2026-11-21 20:20:06 | ERROR    | Cancelación de reserva rechazada (RES-001) -> OperacionNoPermitidaError: [SFJ-200] La reserva RES-001 no puede pasar de 'procesada' a 'cancelada': el servicio ya se prestó y se cobró.
+2026-11-21 20:20:06 | WARNING  | Operación 30 'Cancelar RES-001 después de prestado el servicio (no permitido)' falló de forma controlada -> OperacionNoPermitidaError: [SFJ-200] La reserva RES-001 no puede pasar de 'procesada' a 'cancelada': el servicio ya se prestó y se cobró.
+2026-11-21 20:20:06 | INFO     | Reserva creada: Reserva RES-002 | Carlos Andrés Gómez (CLI-002) | Portátiles de alto rendimiento (EQP-001) | 5 días (cantidad: 3) | pendiente | estimado $ 1.275.000
+2026-11-21 20:20:06 | INFO     | Operación 31 'Reservar 3 portátiles por 5 días (Carlos)' completada.
+2026-11-21 20:20:06 | INFO     | Confirmación de reserva exitosa: Reserva RES-002 | Carlos Andrés Gómez (CLI-002) | Portátiles de alto rendimiento (EQP-001) | 5 días (cantidad: 3) | confirmada | estimado $ 1.275.000
+2026-11-21 20:20:06 | INFO     | Operación 32 'Confirmar la reserva RES-002 (se apartan 3 de 5 portátiles)' completada.
+2026-11-21 20:20:06 | ERROR    | Confirmación de reserva rechazada (RES-002) -> OperacionNoPermitidaError: [SFJ-200] La reserva RES-002 no puede pasar de 'confirmada' a 'confirmada': ya está confirmada.
+2026-11-21 20:20:06 | WARNING  | Operación 33 'Confirmar RES-002 por segunda vez (no permitido)' falló de forma controlada -> OperacionNoPermitidaError: [SFJ-200] La reserva RES-002 no puede pasar de 'confirmada' a 'confirmada': ya está confirmada.
+2026-11-21 20:20:06 | ERROR    | Creación de reserva rechazada (CLI-001 -> EQP-001) -> ReservaInvalidaError: [SFJ-600] No se pudo crear la reserva de EQP-001 para CLI-001: Solo hay 2 unidades libres de EQP-001; se solicitaron 4.
+2026-11-21 20:20:06 | ERROR    |     causa original -> ServicioNoDisponibleError: [SFJ-400] Solo hay 2 unidades libres de EQP-001; se solicitaron 4.
+2026-11-21 20:20:06 | WARNING  | Operación 34 'Reservar 4 portátiles cuando solo quedan 2 libres (excepción encadenada)' falló de forma controlada -> ReservaInvalidaError: [SFJ-600] No se pudo crear la reserva de EQP-001 para CLI-001: Solo hay 2 unidades libres de EQP-001; se solicitaron 4.
+2026-11-21 20:20:06 | ERROR    | Procesamiento de reserva rechazada (RES-002) -> CalculoInconsistenteError: [SFJ-500] El descuento debe estar entre 0 y 0.5 (use 0.19 para 19 %; recibido: 0.8).
+2026-11-21 20:20:06 | WARNING  | Operación 35 'Procesar RES-002 con descuento del 80 % (cálculo inconsistente; la reserva sigue confirmada)' falló de forma controlada -> CalculoInconsistenteError: [SFJ-500] El descuento debe estar entre 0 y 0.5 (use 0.19 para 19 %; recibido: 0.8).
+2026-11-21 20:20:06 | INFO     | Procesamiento de reserva exitosa: Reserva RES-002 | Carlos Andrés Gómez (CLI-002) | Portátiles de alto rendimiento (EQP-001) | 5 días (cantidad: 3) | procesada | cobrado $ 1.365.525
+2026-11-21 20:20:06 | INFO     | Operación 36 'Procesar RES-002 con descuento del 10 % e IVA (los portátiles vuelven al inventario)' completada.
+2026-11-21 20:20:06 | ERROR    | Creación de reserva rechazada (CLI-002 -> ASE-001) -> ReservaInvalidaError: [SFJ-600] No se pudo crear la reserva de ASE-001 para CLI-002: El servicio ASE-001 (Asesoría en ciberseguridad) no está disponible en este momento.
+2026-11-21 20:20:06 | ERROR    |     causa original -> ServicioNoDisponibleError: [SFJ-400] El servicio ASE-001 (Asesoría en ciberseguridad) no está disponible en este momento.
+2026-11-21 20:20:06 | WARNING  | Operación 37 'Reservar la asesoría ASE-001 mientras está deshabilitada (excepción encadenada)' falló de forma controlada -> ReservaInvalidaError: [SFJ-600] No se pudo crear la reserva de ASE-001 para CLI-002: El servicio ASE-001 (Asesoría en ciberseguridad) no está disponible en este momento.
+2026-11-21 20:20:06 | INFO     | Servicio ASE-001 habilitado.
+2026-11-21 20:20:06 | INFO     | Operación 38 'Habilitar de nuevo la asesoría ASE-001' completada.
+2026-11-21 20:20:06 | INFO     | Reserva creada: Reserva RES-003 | Carlos Andrés Gómez (CLI-002) | Asesoría en ciberseguridad (ASE-001) | 2 horas (modalidad: presencial) | pendiente | estimado $ 552.000
+2026-11-21 20:20:06 | INFO     | Operación 39 'Reservar la asesoría ASE-001 por 2 horas en modalidad presencial (Carlos)' completada.
+2026-11-21 20:20:06 | ERROR    | Procesamiento de reserva rechazada (RES-003) -> OperacionNoPermitidaError: [SFJ-200] La reserva RES-003 no puede pasar de 'pendiente' a 'procesada': primero debe confirmarse.
+2026-11-21 20:20:06 | WARNING  | Operación 40 'Procesar RES-003 sin haberla confirmado (no permitido)' falló de forma controlada -> OperacionNoPermitidaError: [SFJ-200] La reserva RES-003 no puede pasar de 'pendiente' a 'procesada': primero debe confirmarse.
+2026-11-21 20:20:06 | INFO     | Cancelación de reserva exitosa: Reserva RES-003 | Carlos Andrés Gómez (CLI-002) | Asesoría en ciberseguridad (ASE-001) | 2 horas (modalidad: presencial) | cancelada | estimado $ 552.000
+2026-11-21 20:20:06 | INFO     | Operación 41 'Cancelar la reserva pendiente RES-003' completada.
+2026-11-21 20:20:06 | ERROR    | Creación de reserva rechazada (CLI-001 -> SAL-001) -> ReservaInvalidaError: [SFJ-600] No se pudo crear la reserva de SAL-001 para CLI-001: La duración para 'Sala Innovación' debe estar entre 1 y 12 horas (recibido: 15).
+2026-11-21 20:20:06 | ERROR    |     causa original -> ParametroInvalidoError: [SFJ-104] La duración para 'Sala Innovación' debe estar entre 1 y 12 horas (recibido: 15).
+2026-11-21 20:20:06 | WARNING  | Operación 42 'Reservar la sala por 15 horas, más de lo permitido (excepción encadenada)' falló de forma controlada -> ReservaInvalidaError: [SFJ-600] No se pudo crear la reserva de SAL-001 para CLI-001: La duración para 'Sala Innovación' debe estar entre 1 y 12 horas (recibido: 15).
+2026-11-21 20:20:06 | ERROR    | Creación de reserva rechazada (CLI-050 -> SAL-001) -> EntidadNoEncontradaError: [SFJ-300] No existe un cliente con identificador 'CLI-050'.
+2026-11-21 20:20:06 | WARNING  | Operación 43 'Reservar para un cliente que no existe' falló de forma controlada -> EntidadNoEncontradaError: [SFJ-300] No existe un cliente con identificador 'CLI-050'.
+2026-11-21 20:20:06 | ERROR    | Confirmación de reserva rechazada (RES-099) -> EntidadNoEncontradaError: [SFJ-300] No existe una reserva con identificador 'RES-099'.
+2026-11-21 20:20:06 | WARNING  | Operación 44 'Confirmar una reserva que no existe' falló de forma controlada -> EntidadNoEncontradaError: [SFJ-300] No existe una reserva con identificador 'RES-099'.
+2026-11-21 20:20:06 | CRITICAL | Operación 45 'Simular un error imprevisto: acceder a un cliente en una posición inexistente' produjo un error imprevisto -> IndexError: tuple index out of range
 Traceback (most recent call last):
   File "main.py", line 51, in ejecutar_operacion
     resultado = accion()  # Llama a la función de la operación
-  File "main.py", line 142, in <lambda>
+  File "main.py", line 183, in <lambda>
     lambda: gestor.listar_clientes()[50]),
             ~~~~~~~~~~~~~~~~~~~~~~~~^^^^
 IndexError: tuple index out of range
-2026-11-21 19:52:28 | INFO     | Fin de la simulación: {'exitosas': 11, 'fallidas': 15, 'imprevistas': 1}
-2026-11-21 19:52:28 | INFO     | Ejecución finalizada.
+2026-11-21 20:20:06 | INFO     | Fin de la simulación: {'exitosas': 20, 'fallidas': 24, 'imprevistas': 1}
+2026-11-21 20:20:06 | INFO     | Ejecución finalizada.
